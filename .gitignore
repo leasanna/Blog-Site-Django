@@ -1,4 +1,5 @@
 media
+django_cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

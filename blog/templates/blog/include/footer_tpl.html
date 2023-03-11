@@ -1,3 +1,6 @@
+{% load cache %}
+
+{% cache 120 footer %}
 <!-- s-extra -->
 <section class="s-extra">
     <div class="row top">
@@ -26,18 +29,10 @@
             <p>Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.</p>
 
             <ul class="about__social">
-                <li>
-                    <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                </li>
-                <li>
-                    <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                </li>
-                <li>
-                    <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </li>
-                <li>
-                    <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                </li>
+                <li><a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
             </ul> <!-- end header__social -->
         </div> <!-- end about -->
 
@@ -103,7 +98,7 @@
                     <form id="mc-form" class="group" novalidate="true">
                         <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
                         <input type="submit" name="subscribe" value="Send">
-                        <label for="mc-email" class="subscribe-message"></label>
+                        {% comment %} <label for="mc-email" class="subscribe-message"></label> {% endcomment %}
                     </form>
                 </div>
             </div> <!-- end s-footer__subscribe -->
@@ -127,3 +122,4 @@
     </div> <!-- end s-footer__bottom -->
 
 </footer> <!-- end s-footer -->
+{% endcache %}

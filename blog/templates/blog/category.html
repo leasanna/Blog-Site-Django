@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% load navbar %}
+{% load cache %}
 
 {% block title %}{{ category|capfirst }}{% endblock title %}{{category }}
 
 {% block content %}
-    <!-- pageheader -->
-    <div class="s-pageheader">
-        {% show_navbar %}
-    </div> <!-- end s-pageheader -->
+    <!-- pageheader --><div class="s-pageheader">{% show_navbar %}</div> <!-- end s-pageheader -->
 
 
     <!-- s-content -->
