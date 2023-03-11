@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load navbar %}
+
+{% block title %}Philosophy{% endblock title %}
+
+{% block content %}
+
+<!-- pageheader -->
+<section class="s-pageheader s-pageheader--home">
+
+    {% show_navbar %}
+
+    <div class="pageheader-content row">
+        <div class="col-full">
+            <div class="featured">
+                {% for item in selected %}
+                <div class="featured__column featured__column--{% cycle 'big' 'small' 'small' %} ">
+                    <div class="entry" style="background-image:url('{{ item.image.url }}');">
+                        <div class="entry__content">
+                            {% for category in item.categories.all  %}
+                                <span class="entry__category"><a href="{{ category.get_absolute_url }}">{{ category}}</a></span>                            
+                            {% endfor %}
+
+                            <h1><a href="{{ item.get_absolute_url }}" title="">{{ item }}</a></h1>
+
+                            <div class="entry__info">
+                                <a href="{{ item.get_absolute_url }}" class="entry__profile-pic">
+                                    <img class="avatar" src="{{ item.author.image.url }}" alt="">
+                                </a>
+
+                                <ul class="entry__meta">
+                                    <li><a href="{{ item.get_absolute_url }}">{{ item.author }}</a></li>
+                                    <li>{{ item.create_at|date:"Y-m-d" }}</li>
+                                </ul>
+                            </div>
+                        </div> <!-- end entry__content -->
+                    </div> <!-- end entry -->
+                </div> <!-- end featured__big -->
+                {% endfor %}
+            </div> <!-- end featured -->
+        </div> <!-- end col-full -->
+    </div> <!-- end pageheader-content row -->
+
+</section> <!-- end s-pageheader -->
+
+<!-- s-content -->
+<section class="s-content">
+    
+    <div class="row masonry-wrap">
+        <div class="masonry">
+
+            <div class="grid-sizer"></div>
+
+            {% for item in news %}
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                
+                {% if item.image %}
+                <div class="entry__thumb">
+                    <a href="{{ item.get_absolute_url }}" class="entry__thumb-link">
+                        <img src="{{ item.image.url }}" alt="{{ item.title|truncatewords:6 }}">
+                    </a>
+                </div>
+                {% endif %}
+
+                <div class="entry__text">
+                    <div class="entry__header">
+                        
+                        <div class="entry__date">
+                            <a href="{{ item.get_absolute_url }}">{{ item.create_at }}</a>
+                        </div>
+                        <h1 class="entry__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h1>
+                        
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>{{ item.content|safe|truncatechars:50 }}</p>
+                    </div>
+                    <div class="entry__meta">
+                        <span class="entry__meta-links">
+                            {% for category in item.categories.all %}
+                                <a href="{{ category.get_absolute_url }}">{{ category.title }}</a> 
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
+
+            </article>
+            {% empty %}
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                <h2 >There is no news</h2>
+            </article> 
+            {% endfor %}
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+</section> <!-- s-content -->
+{% endblock content %}

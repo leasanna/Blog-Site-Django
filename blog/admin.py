@@ -2,23 +2,26 @@ from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import News, Category, Tag, Author
+from .models import Post, Category, Tag, Author
 
 
-
-class NewsAdminForm(forms.ModelForm):
+class PostAdminForm(forms.ModelForm):
     """Добавление ckeditor"""
     content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
-        model = News
+        model = Post
         fields = '__all__'
 
 
-@admin.register(News)
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    form = NewsAdminForm
+    form = PostAdminForm
 
+    save_as = True
+    list_display = ('title', 'author', 'create_at',
+                    'is_selected', 'is_published')
+    list_editable = ('is_published',)
     prepopulated_fields = {'slug': ('title',)}
 
 

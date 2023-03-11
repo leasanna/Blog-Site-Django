@@ -39,13 +39,14 @@ Post:
 """
 
 
-class News(models.Model):
+class Post(models.Model):
     title = models.CharField('Заголовок', max_length=255)
     image = models.ImageField(
-        'Изображение', upload_to='image/%Y/%m/%d', blank=True)
+        'Изображение', upload_to='image/%Y/%m/%d')
     content = models.TextField('Контент')
     create_at = models.DateTimeField(auto_now_add=True)
-    categories = models.ManyToManyField('Category', verbose_name='Категории')
+    views = models.IntegerField('Количество просмотров', default=0)
+    categories = models.ManyToManyField('Category', verbose_name='Категории') 
     tags = models.ManyToManyField('Tag', verbose_name='Теги')
     author = models.ForeignKey(
         'Author', on_delete=models.PROTECT, blank=True, verbose_name='Автор')
@@ -74,7 +75,7 @@ class Category(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("tag_detail", kwargs={"slug": self.slug})
+        return reverse("category_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Категория'
@@ -100,13 +101,12 @@ class Tag(models.Model):
 
 class Author(models.Model):
     name = models.CharField('Имя', max_length=100)
-    slug = models.SlugField('URL', max_length=255, unique=True)
+    image = models.ImageField(
+        'Изображение', upload_to='image/author/', blank=True)
+    content = models.TextField('Контент', default='')
 
     def __str__(self):
         return self.name
-
-    # def get_absolute_url(self):
-        # return reverse("author_detail", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = 'Автор'
