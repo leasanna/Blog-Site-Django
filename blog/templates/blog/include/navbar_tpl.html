@@ -1,28 +1,17 @@
-{% load static %}
-{% load cache %}
+{% load static %}{% load cache %}
 
 {% cache 120 navbar %}
 <header class="header">
     <div class="header__content row">
         <div class="header__logo">
-            <a class="logo" href="index.html">
-                <img src="{% static 'img/logo.svg' %}" alt="Homepage">
-            </a>
+            <a class="logo" href="{% url 'home_page' %}"><img src="{% static 'img/logo.svg' %}" alt="Homepage"></a>
         </div> <!-- end header__logo -->
 
         <ul class="header__social">
-            <li>
-                <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-            </li>
+            <li><a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
         </ul> <!-- end header__social -->
 
         <a class="header__search-trigger" href="#0"></a>
