@@ -1146,21 +1146,21 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .pgn__prev {
-   background-image: url("../images/icons/icon-arrow-left.svg");
+   background-image: url("../img/icons/icon-arrow-left.svg");
    left: 0;
 }
 
 .pgn__prev:hover {
-   background-image: url("../images/icons/icon-arrow-left-w.svg");
+   background-image: url("../img/icons/icon-arrow-left-w.svg");
 }
 
 .pgn__next {
-   background-image: url("../images/icons/icon-arrow-right.svg");
+   background-image: url("../img/icons/icon-arrow-right.svg");
    right: 0;
 }
 
 .pgn__next:hover {
-   background-image: url("../images/icons/icon-arrow-right-w.svg");
+   background-image: url("../img/icons/icon-arrow-right-w.svg");
 }
 
 .pgn__prev.inactive, .pgn__next.inactive {
@@ -1170,11 +1170,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .pgn__prev.inactive:hover {
-   background-image: url("../images/icons/icon-arrow-left.svg");
+   background-image: url("../img/icons/icon-arrow-left.svg");
 }
 
 .pgn__next.inactive:hover {
-   background-image: url("../images/icons/icon-arrow-right.svg");
+   background-image: url("../img/icons/icon-arrow-right.svg");
 }
 
 /* ------------------------------------------------------------------- 
@@ -1214,15 +1214,15 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * ## mediaelement style overrides
  * ------------------------------------------------------------------- */
 .mejs__overlay-button {
-   background-image: url("../images/mejs/mejs-controls.svg");
+   background-image: url("../img/mejs/mejs-controls.svg");
 }
 
 .mejs__overlay-loading-bg-img {
-   background-image: url("../images/mejs/mejs-controls.svg");
+   background-image: url("../img/mejs/mejs-controls.svg");
 }
 
 .mejs__button > button {
-   background-image: url("../images/mejs/mejs-controls.svg");
+   background-image: url("../img/mejs/mejs-controls.svg");
    background-color: transparent;
    outline: none !important;
 }
@@ -1591,11 +1591,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .format-quote .entry__thumb::before {
-   background-image: url(../images/icons/icon-quote.svg);
+   background-image: url(../img/icons/icon-quote.svg);
 }
 
 .format-link .entry__thumb::before {
-   background-image: url(../images/icons/icon-link.svg);
+   background-image: url(../img/icons/icon-link.svg);
    width: 3.3rem;
 }
 
@@ -1637,7 +1637,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    bottom: 3rem;
    left: 3rem;
    cursor: zoom-in;
-   background-image: url(../images/icons/icon-video.svg);
+   background-image: url(../img/icons/icon-video.svg);
    background-position: center center;
    background-repeat: no-repeat;
    background-size: contain;
@@ -1651,7 +1651,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * ------------------------------------------------------------------- */
 .s-pageheader {
    min-height: 174px;
-   background-image: url(../images/hero-bg.jpg);
+   background-image: url(../img/hero-bg.jpg);
    background-repeat: no-repeat;
    background-position: center center;
    position: relative;
@@ -1912,7 +1912,7 @@ body.search-is-visible {
    position: absolute;
    right: 20px;
    top: 15px;
-   background-image: url(../images/icons/icon-search.svg);
+   background-image: url(../img/icons/icon-search.svg);
    background-repeat: no-repeat;
    background-position: right center;
    background-size: contain;
@@ -3269,7 +3269,7 @@ footer h4::after {
    height: 5.4rem;
    font-size: 1.5rem;
    padding: 1.2rem 100px 1.2rem 60px;
-   background: url(../images/icons/icon-mail.svg) 20px center no-repeat, rgba(0, 0, 0, 0.1);
+   background: url(../img/icons/icon-mail.svg) 20px center no-repeat, rgba(0, 0, 0, 0.1);
    background-size: 24px 16px, auto;
    margin-bottom: 1.8rem;
    color: rgba(255, 255, 255, 0.5);
@@ -3369,7 +3369,7 @@ footer h4::after {
    width: 5.4rem;
    line-height: 5.4rem;
    text-align: center;
-   background-image: url(../images/icons/icon-arrow-up.svg);
+   background-image: url(../img/icons/icon-arrow-up.svg);
    background-color: #000000;
    background-repeat: no-repeat;
    background-position: center center;
@@ -4141,5 +4141,3 @@ footer h4::after {
 #cForm {
    margin-top: 3.6rem;
 }
-
-/*# sourceMappingURL=main.css.map */

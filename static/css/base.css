@@ -1,5 +1,4 @@
 @import url("./font-awesome/css/font-awesome.min.css");
-@import url("./fonts.css");
 
 html {
    font-family: sans-serif;
@@ -923,5 +922,3 @@ textarea {
    margin-right: auto;
    text-align: center;
 }
-
-/*# sourceMappingURL=base.css.map */

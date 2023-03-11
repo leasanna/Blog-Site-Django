@@ -26,11 +26,10 @@
 </head>
 <body id="top">
     {% block content %}{% endblock content %}
-
     {% show_footer %}
     
     <!-- preloader -->
-    <div id="preloader">
+    {% comment %} <div id="preloader">
         <div id="loader">
             <div class="line-scale">
                 <div></div>
@@ -40,7 +39,7 @@
                 <div></div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     <!-- JavaScript -->
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
