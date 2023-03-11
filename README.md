@@ -5,6 +5,6 @@ Blog Site on Django
 
 
 Использование: 
-  pip install -r <requirements.txt
-  python manage.py migrate
+  pip install -r <requirements.txt<br>
+  python manage.py migrate<br>
   python manage.py runserver
