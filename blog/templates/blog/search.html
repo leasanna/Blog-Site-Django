@@ -6,13 +6,12 @@
 
 {% block content %}
     <!-- pageheader --><div class="s-pageheader">{% show_navbar %}</div><!-- end s-pageheader -->
-
+    
     <!-- s-content -->
     <section class="s-content">
-
         <div class="row narrow">
             <div class="col-full s-content__header" data-aos="fade-up">
-                <h1>Category: {{ category }}</h1>
+                <h1>Search: {{ s }}</h1>
             </div>
         </div>
         
@@ -60,7 +59,6 @@
                 {% endfor %}
             </div> <!-- end masonry -->
         </div> <!-- end masonry-wrap -->
-        
 
         {% if page_obj.has_other_pages %}
         <div class="row">
@@ -68,9 +66,9 @@
                 <nav class="pgn">
                     <ul>
                     {% if page_obj.has_previous %}
-                        <li><a class="pgn__prev" href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+                        <li><a class="pgn__prev" href="?s={{ s }}&page={{ page_obj.previous_page_number }}">Prev</a></li>
                         {% if page_obj.number > 3 %}
-                            <li><a class="pgn__num" href="?page=1">1</a></li>
+                            <li><a class="pgn__num" href="?s={{ s }}&page=1">1</a></li>
                             {% comment %} <a class="page-numbers" href="?page=1">1</a> {% endcomment %}
                             {% if page_obj.number > 4 %}
                                 <span>...</span>
@@ -82,18 +80,18 @@
                         {% if page_obj.number == num %}
                             <li><span class="pgn__num current">{{ num }}</span></li>
                         {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                            <li><a class="pgn__num" href="?page={{ num }}">{{ num }}</a></li>
+                            <li><a class="pgn__num" href="?s={{ s }}&page={{ num }}">{{ num }}</a></li>
                         {% endif %}
                     {% endfor %}
 
                     {% if page_obj.has_next %}
-                        <li><a class="pgn__next" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                        <li><a class="pgn__next" href="?s={{ s }}&page={{ page_obj.next_page_number }}">Next</a></li>
 
                         {% if page_obj.number < page_obj.paginator.num_pages|add:'-3'  %}
                             <span class="page-numbers" >...</span>
-                            <li><a class="pgn__num" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                            <li><a class="pgn__num" href="?s={{ s }}&page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
                         {% elif page_obj.number <= page_obj.paginator.num_pages|add:'-3' %}
-                            <li><a class="pgn__num" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                            <li><a class="pgn__num" href="?s={{ s }}&page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
                         {% endif %}
                     {% endif %}
                 </nav>

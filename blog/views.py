@@ -7,7 +7,7 @@ from django.views.generic import ListView, DetailView
 class HomePage(ListView):
     model = Post
     template_name = 'blog/index.html'
-    context_object_name = 'news'
+    context_object_name = 'post'
 
     def get_queryset(self):
         return Post.objects.filter(is_published=True)[:12]
@@ -22,7 +22,7 @@ class HomePage(ListView):
 
 class NewsDetail(DetailView):
     model = Post
-    context_object_name = 'news'
+    context_object_name = 'post'
 
     def get_context_data(self, **kwargs):
         contex = super().get_context_data(**kwargs)
@@ -37,7 +37,7 @@ class NewsDetail(DetailView):
 class CatigoriesInfo(ListView):
     model = Post
     template_name = 'blog/category.html'
-    context_object_name = 'news'
+    context_object_name = 'post'
     paginate_by = 12
     allow_empty = False
 
@@ -53,3 +53,20 @@ class CatigoriesInfo(ListView):
 
 class TagsInfo(ListView):
     model = Post
+
+
+
+class Search(ListView):
+    template_name = 'blog/search.html'
+    context_object_name = 'post'
+    paginate_by = 12
+
+    def get_queryset(self):
+        return Post.objects.filter(is_published=True, title__icontains=self.request.GET.get('s'))
+    
+    def get_context_data(self, **kwargs):
+        contex = super().get_context_data(**kwargs)
+        contex['s'] = self.request.GET.get('s')
+        
+        return contex
+    
