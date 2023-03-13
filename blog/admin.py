@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Post, Category, Tag, Author
+from .models import Post, Category, Tag, Author, Comment
 
 
 class PostAdminForm(forms.ModelForm):
@@ -26,15 +26,20 @@ class PostAdmin(admin.ModelAdmin):
 
 
 @admin.register(Category)
-class PostAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Tag)
-class PostAdmin(admin.ModelAdmin):
+class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Author)
-class PostAdmin(admin.ModelAdmin):
+class AuthorAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Comment)
+class CommnetAdmin(admin.ModelAdmin):
     pass
